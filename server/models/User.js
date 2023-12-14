@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const { Schema } = mongoose;
 const Order = require('./Order');
 
 const userSchema = new Schema({
-    userName: {
+    username: {
       type: String,
       required: true,
       trim: true

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
@@ -11,7 +11,7 @@ const productSchema = new Schema({
     description: {
       type: String
     },
-    image: {
+    img: {
       type: String
     },
     price: {

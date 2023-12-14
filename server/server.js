@@ -1,15 +1,15 @@
-import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
-import path from 'path';
-import { authMiddleware } from './utils/auth';
-
-// import typeDefs and resolvers from schemas
+const express = require('express');
+const { ApolloServer } = require('apollo-server-express');
+const path = require('path');
+const { authMiddleware } = require('./utils/auth');
+const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
-    // typeDefs, resolvers
+    typeDefs,
+    resolvers,
     context: authMiddleware
 });
 
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // static assets
-app.use('/images', express.static(path.join(__dirname, '../client/images')));
+app.use('/imgs', express.static(path.join(__dirname, '../client/imgs')));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));

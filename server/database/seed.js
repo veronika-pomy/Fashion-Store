@@ -1,4 +1,4 @@
-import db from './connection';
-import { User, Product, Category } from '../models';
+const db = require('./connection');
+const { User, Product, Category } = require('../models');
 
 // open db, drop, seed data

@@ -1,6 +1,6 @@
-import User from './User';
-import Product from './Product';
-import Category from './Category';
-import Order from './Order';
+const User = require('./User');
+const Product = require('./Product');
+const Category = require('./Category');
+const Order = require('./Order');
 
-export default { User, Product, Category, Order };
+module.exports = { User, Product, Category, Order };
