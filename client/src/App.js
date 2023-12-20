@@ -7,8 +7,9 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { ShopProvider } from './utils/GlobalState';
 
-// add pages
+// Add pages
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -29,13 +30,28 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// Add Apollo provider, Router, Context provider
-
 function App() {
   return (
-    <div className='app-container'>
-      New App
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <div className='app-container'>
+          <ShopProvider>
+            <h1>New App</h1>
+            {/* NavBar */}
+            <Routes>
+              {/* Home */}
+              {/* LogIn */}
+              {/* SignUp */}
+              {/* Success */}
+              {/* OrderHistory */}
+              {/* Detail */}
+              {/* Error */}
+            </Routes>
+          </ShopProvider>
+        </div>
+      </Router>
+    </ApolloProvider>
+    
   );
 }
 
