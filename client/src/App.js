@@ -8,6 +8,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { ShopProvider } from './utils/GlobalState';
+import NavBar from "./components/NavBar/NavBar";
 
 // Add pages
 
@@ -36,8 +37,7 @@ function App() {
       <Router>
         <div className='app-container'>
           <ShopProvider>
-            <h1>New App</h1>
-            {/* NavBar */}
+            <NavBar />
             <Routes>
               {/* Home */}
               {/* LogIn */}

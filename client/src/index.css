@@ -67,3 +67,7 @@ a:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+
+ul {
+  list-style-type: none;
+}
