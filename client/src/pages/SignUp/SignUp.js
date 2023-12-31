@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import Auth from '../../utils/auth';
+import { ADD_USER } from '../../utils/mutations';
 
 const SignUp = () => {
 
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
-    const [addUser, {error}] = useMutation(ADD_USER);
+    const [addUser, { error }] = useMutation(ADD_USER);
 
     // Input Handler
     const formInputHandler = (e) => {
@@ -22,14 +22,14 @@ const SignUp = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const signup = await addUser({
+            const signupResponse = await addUser({
                 variables: {
                     username: formState.username,
                     email: formState.email,
                     password: formState.password
                 },
             });
-            const token = signup.data.addUser.token;
+            const token = signupResponse.data.addUser.token;
             Auth.login(token);
         } catch (e) {
             console.log("Unexpected error.");

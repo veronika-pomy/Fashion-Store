@@ -11,6 +11,8 @@ import { ShopProvider } from './utils/GlobalState';
 import NavBar from "./components/NavBar/NavBar";
 
 // Add pages
+import LogIn from "./pages/LogIn/LogIn";
+import SignUp from "./pages/SignUp/SignUp";
 
 
 const httpLink = createHttpLink({
@@ -41,8 +43,14 @@ function App() {
             <NavBar />
             <Routes>
               {/* Home */}
-              {/* LogIn */}
-              {/* SignUp */}
+              <Route 
+                path='/login' 
+                element={<LogIn />} 
+              />
+              <Route 
+                path='/signup'
+                element={<SignUp />} 
+              />
               {/* Success */}
               {/* OrderHistory */}
               {/* Detail */}
