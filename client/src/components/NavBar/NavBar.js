@@ -24,12 +24,12 @@ const NavBar = () => {
       return (
         <ul>
           <li>
-            <Link to="/signup">
+            <Link to='/signup'>
               Sign Up
             </Link>
           </li>
           <li>
-            <Link to="/login">
+            <Link to='/login'>
               Log In
             </Link>
           </li>

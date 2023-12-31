@@ -12,6 +12,7 @@ import NavBar from "./components/NavBar/NavBar";
 
 // Add pages
 
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
