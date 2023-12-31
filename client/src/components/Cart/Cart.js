@@ -1,0 +1,104 @@
+import React, { useEffect } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_CHECKOUT } from '../../utils/queries';
+import { useShopContext } from '../../utils/GlobalState';
+import ProductInCart from '../ProductInCart/ProductInCart';
+import Auth from '../../utils/auth';
+import { updateDB } from '../../utils/helper';
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { Link } from 'react-router-dom';
+
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
+const Cart = () => {
+
+  const [ state, dispatch ] = useShopContext();
+
+  const [ getCheckout, { data } ] = useLazyQuery(QUERY_CHECKOUT);
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [ data ]);
+
+  useEffect(() => {
+    const getCart = async () => {
+      const cart = await updateDB('cart', 'get');
+      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+    };
+
+    if (!state.cart.length) {
+      getCart();
+    };
+  }, [ state.cart.length, dispatch ]);
+
+  const toggleCart = () => {
+    dispatch({ type: TOGGLE_CART });
+  };
+
+  const calTotal = () => {
+    let sum = 0;
+    state.cart.forEach((product) => {
+      sum += product.price * product.purchaseQuantity;
+    });
+    return sum.toFixed(2);
+  };
+  
+  const checkoutHandler = () => {
+    const productIds = [];
+
+    state.cart.forEach((product) => {
+      for (let i = 0; i < product.purchaseQuantity; i++) {
+        productIds.push(product._id);
+      }
+    });
+
+    getCheckout({
+      variables: { products: productIds },
+    });
+  }
+
+  if (!state.cartOpen) {
+    return (
+      <div onClick={toggleCart}>
+        {/* Change to an icon */}
+        <p>cart</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div onClick={toggleCart}>
+        {/* Change to an icon */}
+        <p>close</p>
+      </div>
+      <h3>Your Cart</h3>
+      {state.cart.length ? 
+        (<div>
+          {state.cart.map((product) => (
+            <ProductInCart key={product._id} product={product} />
+          ))}
+          <div>
+            <strong>Your Total: ${calTotal()}</strong>
+            {Auth.loggedIn() ? (
+              <button onClick={checkoutHandler}>Check out</button>
+            ) : (
+              <Link to='/login'>Log in to check out</Link>
+            )}
+          </div>
+        </div>)
+      :
+        (<p>
+          Your cart is empty.
+        </p>
+      )}
+    </div>
+  )
+}
+
+export default Cart;

@@ -7,7 +7,7 @@ import Auth from '../../utils/auth';
 const LogIn = () => {
 
     const [ formState, setFormState ] = useState({ email: '', password: '' });
-    const [login, { error }] = useMutation(LOG_IN);
+    const [ login, { error } ] = useMutation(LOG_IN);
 
     // Input Handler
     const formInputHandler = (e) => {
@@ -40,7 +40,7 @@ const LogIn = () => {
             <h2>Log In</h2>
             <form onSubmit={handleFormSubmit}>
                 <div>
-                    <label for='email'>Email</label>
+                    <label htmlFor='email'>Email</label>
                     <input 
                         placeholder='Email'
                         name='email'
@@ -50,12 +50,12 @@ const LogIn = () => {
                     />
                 </div>
                 <div>
-                    <label for='password'>Password</label>
+                    <label htmlFor='current-password'>Password</label>
                     <input 
                         placeholder='*****'
-                        name='password'
-                        type='password'
-                        id='password'
+                        name='current-password'
+                        type='current-password'
+                        id='current-password'
                         onChange={formInputHandler}
                     />
                 </div>
@@ -64,6 +64,7 @@ const LogIn = () => {
                         Submit
                     </button>
                 </div>
+                {/* Handle backend errors */}
                 {error ? 
                     <div>
                         <p>Incorrect credentials. Please try again.</p>

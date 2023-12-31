@@ -7,14 +7,14 @@ import { ADD_USER } from '../../utils/mutations';
 const SignUp = () => {
 
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
-    const [addUser, { error }] = useMutation(ADD_USER);
+    const [ addUser, { error } ] = useMutation(ADD_USER);
 
     // Input Handler
     const formInputHandler = (e) => {
         const { name, value } = e.target;
         setFormState({
             ...formState,
-            [name]: value,
+            [ name ]: value,
         });
     };
 
@@ -42,7 +42,7 @@ const SignUp = () => {
             <h2>Sign Up</h2>
             <form onSubmit={handleFormSubmit}>
                 <div>
-                    <label for='username'>Username</label>
+                    <label htmlFor='username'>Username</label>
                     <input 
                         placeholder='Username'
                         name='username'
@@ -52,7 +52,7 @@ const SignUp = () => {
                     />
                 </div>
                 <div>
-                    <label for='email'>Email</label>
+                    <label htmlFor='email'>Email</label>
                     <input 
                         placeholder='Email'
                         name='email'
@@ -62,12 +62,12 @@ const SignUp = () => {
                     />
                 </div>
                 <div>
-                    <label for='password'>Password</label>
+                    <label htmlFor='current-password'>Password</label>
                     <input 
                         placeholder='*****'
-                        name='password'
-                        type='password'
-                        id='password'
+                        name='current-password'
+                        type='current-password'
+                        id='current-password'
                         onChange={formInputHandler}
                     />
                 </div>
@@ -76,7 +76,7 @@ const SignUp = () => {
                         Submit
                     </button>
                 </div>
-                {/* Handle server errors */}
+                {/* Handle backend errors */}
                 {error ? 
                     <div>
                         <p>Error. Please try again.</p>

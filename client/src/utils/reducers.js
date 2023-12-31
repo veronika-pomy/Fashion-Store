@@ -11,7 +11,6 @@ import {
     UPDATE_CURRENT_CATEGORY
 } from './actions';
 
-// add reducer
 export const reducer = (state, action) => {
     switch (action.type) {
         case UPDATE_PRODUCTS:
