@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
-import { QUERY_CHECKOUT } from '../../utils/queries';
+import { loadStripe } from '@stripe/stripe-js';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useShopContext } from '../../utils/GlobalState';
-import ProductInCart from '../ProductInCart/ProductInCart';
+import { ADD_MULTIPLE_TO_CART, TOGGLE_CART } from '../../utils/actions';
 import Auth from '../../utils/auth';
 import { updateDB } from '../../utils/helper';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
-import { Link } from 'react-router-dom';
+import { QUERY_CHECKOUT } from '../../utils/queries';
+import ProductInCart from '../ProductInCart/ProductInCart';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 

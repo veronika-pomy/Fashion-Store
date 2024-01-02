@@ -21,6 +21,8 @@ const LogIn = () => {
     // Form Submit 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
+        console.log(formState.email);
+        console.log(formState.password);
         try {
             const loginResponse = await login({
                 variables: {
@@ -29,8 +31,10 @@ const LogIn = () => {
                 },
             });
             const token = loginResponse.data.login.token;
+            console.log(token);
             Auth.login(token);
         } catch (e) {
+            console.error(e);
             console.log("Unexpected error.");
         };
     };
@@ -50,12 +54,12 @@ const LogIn = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor='current-password'>Password</label>
+                    <label htmlFor='password'>Password</label>
                     <input 
                         placeholder='*****'
-                        name='current-password'
-                        type='current-password'
-                        id='current-password'
+                        name='password'
+                        type='password'
+                        id='password'
                         onChange={formInputHandler}
                     />
                 </div>

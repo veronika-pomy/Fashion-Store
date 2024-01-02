@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
+import React, { useEffect } from 'react';
 import { useShopContext } from '../../utils/GlobalState';
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
-import { QUERY_CATEGORIES } from '../../utils/queries';
 import { updateDB } from '../../utils/helper';
+import { QUERY_CATEGORIES } from '../../utils/queries';
 
 const CategoryMenu = () => {
 

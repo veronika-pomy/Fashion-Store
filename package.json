@@ -16,5 +16,8 @@
   "devDependencies": {
     "@types/jwt-decode": "^3.1.0",
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }

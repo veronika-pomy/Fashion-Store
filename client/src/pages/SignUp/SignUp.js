@@ -32,6 +32,7 @@ const SignUp = () => {
             const token = signupResponse.data.addUser.token;
             Auth.login(token);
         } catch (e) {
+            console.error(e);
             console.log("Unexpected error.");
         }
     };
@@ -62,12 +63,12 @@ const SignUp = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor='current-password'>Password</label>
+                    <label htmlFor='password'>Password</label>
                     <input 
                         placeholder='*****'
-                        name='current-password'
-                        type='current-password'
-                        id='current-password'
+                        name='password'
+                        type='password'
+                        id='password'
                         onChange={formInputHandler}
                     />
                 </div>
