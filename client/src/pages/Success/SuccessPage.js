@@ -29,7 +29,7 @@ const SuccessPage = () => {
   return (
     <div>
       <h2>Thank you for your purchase!</h2>
-      <p>You're being redirected to the home page...</p>
+      <p>You're being redirected to the main page...</p>
     </div>
   )
 }

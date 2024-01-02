@@ -12,7 +12,7 @@ const OrderHistory = () => {
 
     return (
         <div>
-            <Link to="/">Return Home</Link>
+            <Link to="/">Return</Link>
 
             {user ? 
                 (

@@ -82,7 +82,7 @@ const ProductDetail = () => {
         <>
             {product && cart ? 
                     (<div>
-                        <Link to="/">Back</Link>
+                        <Link to="/">Return</Link>
                         <h3>{product.name}</h3>
                         <p>{product.description}</p>
                         <p>
