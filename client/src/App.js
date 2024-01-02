@@ -9,13 +9,12 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { ShopProvider } from './utils/GlobalState';
 import NavBar from "./components/NavBar/NavBar";
-
-// Add pages
 import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
 import Home from './pages/Home/Home';
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import SuccessPage from "./pages/Success/SuccessPage";
+import OrderHistory from "./pages/OrderHistory/OrderHistory";
 import Error from './pages/Error/Error';
 
 const httpLink = createHttpLink({
@@ -65,7 +64,10 @@ function App() {
                 path="/success" 
                 element={<SuccessPage />} 
               />
-              {/* OrderHistory */}
+              <Route 
+                path="/orderHistory" 
+                element={<OrderHistory />} 
+              />
               <Route 
                 path="*" 
                 element={<Error />} 
