@@ -5,7 +5,7 @@ import { useShopContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { updateDB } from '../../utils/helper';
 
-const Product = ({ product}) => {
+const Product = ({ product }) => {
 
     const [ state, dispatch ] = useShopContext();
 

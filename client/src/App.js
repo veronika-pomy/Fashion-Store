@@ -12,10 +12,10 @@ import NavBar from "./components/NavBar/NavBar";
 
 // Add pages
 import Home from './pages/Home/Home';
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
 import Error from './pages/Error/Error';
-
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -56,9 +56,12 @@ function App() {
                 path='/signup'
                 element={<SignUp />} 
               />
+              <Route 
+                path="/products/:id" 
+                element={<ProductDetail />} 
+              />
               {/* Success */}
               {/* OrderHistory */}
-              {/* Detail */}
               <Route 
                 path="*" 
                 element={<Error />} 
