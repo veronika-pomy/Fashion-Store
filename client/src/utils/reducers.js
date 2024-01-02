@@ -1,14 +1,14 @@
 import { useReducer } from 'react';
 import {
-    UPDATE_PRODUCTS,
-    ADD_TO_CART,
     ADD_MULTIPLE_TO_CART,
-    REMOVE_FROM_CART,
+    ADD_TO_CART,
     CLEAR_CART,
-    UPDATE_CART_QUANTITY,
+    REMOVE_FROM_CART,
     TOGGLE_CART,
+    UPDATE_CART_QUANTITY,
     UPDATE_CATEGORIES,
-    UPDATE_CURRENT_CATEGORY
+    UPDATE_CURRENT_CATEGORY,
+    UPDATE_PRODUCTS
 } from './actions';
 
 export const reducer = (state, action) => {

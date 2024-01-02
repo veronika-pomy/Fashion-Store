@@ -1,16 +1,16 @@
+import { useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
 import Cart from '../../components/Cart/Cart';
 import { useShopContext } from '../../utils/GlobalState';
 import {
-    UPDATE_CART_QUANTITY,
     ADD_TO_CART,
-    UPDATE_PRODUCTS,
     REMOVE_FROM_CART,
+    UPDATE_CART_QUANTITY,
+    UPDATE_PRODUCTS,
 } from '../../utils/actions';
-import { QUERY_PRODUCTS } from '../../utils/queries';
 import { updateDB } from '../../utils/helper';
+import { QUERY_PRODUCTS } from '../../utils/queries';
 // Loading Component
 
 const ProductDetail = () => {

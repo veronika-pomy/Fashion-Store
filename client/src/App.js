@@ -1,21 +1,21 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
-  InMemoryCache,
   ApolloProvider,
+  InMemoryCache,
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { ShopProvider } from './utils/GlobalState';
+import React from "react";
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import NavBar from "./components/NavBar/NavBar";
-import LogIn from './pages/LogIn/LogIn';
-import SignUp from './pages/SignUp/SignUp';
-import Home from './pages/Home/Home';
-import ProductDetail from "./pages/ProductDetail/ProductDetail";
-import SuccessPage from "./pages/Success/SuccessPage";
-import OrderHistory from "./pages/OrderHistory/OrderHistory";
 import Error from './pages/Error/Error';
+import Home from './pages/Home/Home';
+import LogIn from './pages/LogIn/LogIn';
+import OrderHistory from "./pages/OrderHistory/OrderHistory";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import SignUp from './pages/SignUp/SignUp';
+import SuccessPage from "./pages/Success/SuccessPage";
+import { ShopProvider } from './utils/GlobalState';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

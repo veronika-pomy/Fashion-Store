@@ -1,7 +1,7 @@
 import React from 'react';
+import Cart from '../../components/Cart/Cart';
 import CategoryMenu from '../../components/CategoryMenu/CategoryMenu';
 import Products from '../../components/Products/Products';
-import Cart from '../../components/Cart/Cart';
 
 const Home = () => {
     return (

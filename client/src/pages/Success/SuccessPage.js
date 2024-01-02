@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_ORDER } from '../../utils/mutations';
+import React, { useEffect } from 'react';
 import { updateDB } from '../../utils/helper';
+import { ADD_ORDER } from '../../utils/mutations';
 
 const SuccessPage = () => {
 
