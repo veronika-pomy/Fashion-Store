@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useShopContext } from '../../utils/GlobalState';
 import { ADD_MULTIPLE_TO_CART, TOGGLE_CART } from '../../utils/actions';
 import Auth from '../../utils/auth';
-import { updateDB } from '../../utils/helper';
+import { indexedDBStore } from '../../utils/helper';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import ProductInCart from '../ProductInCart/ProductInCart';
 
@@ -27,7 +27,7 @@ const Cart = () => {
 
   useEffect(() => {
     const getCart = async () => {
-      const cart = await updateDB('cart', 'get');
+      const cart = await indexedDBStore('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     };
 
@@ -40,7 +40,7 @@ const Cart = () => {
     dispatch({ type: TOGGLE_CART });
   };
 
-  const calTotal = () => {
+  const calcTotal = () => {
     let sum = 0;
     state.cart.forEach((product) => {
       sum += product.price * product.purchaseQuantity;
@@ -84,7 +84,7 @@ const Cart = () => {
             <ProductInCart key={product._id} product={product} />
           ))}
           <div>
-            <strong>Your Total: ${calTotal()}</strong>
+            <strong>Your Total: ${calcTotal()}</strong>
             {Auth.loggedIn() ? (
               <button onClick={checkoutHandler}>Check out</button>
             ) : (

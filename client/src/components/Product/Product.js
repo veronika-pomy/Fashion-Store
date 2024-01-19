@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useShopContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
-import { mult, updateDB } from "../../utils/helper";
+import { mult, indexedDBStore } from "../../utils/helper";
 
 const Product = ({ product }) => {
 
@@ -20,16 +20,16 @@ const Product = ({ product }) => {
                 _id: _id,
                 purchaseQuantity: parseInt(item.purchaseQuantity) + 1
             });
-            updateDB('cart', 'put', {
+            indexedDBStore('cart', 'put', {
                 ...item,
                 purchaseQuantity: parseInt(item.purchaseQuantity) + 1
             });
         } else {
             dispatch({
                 type: ADD_TO_CART,
-                product: { ...item, purchaseQuantity: 1 }
+                product: { ...product, purchaseQuantity: 1 }
             });
-            updateDB('cart', 'put', { ...item, purchaseQuantity: 1 });
+            indexedDBStore('cart', 'put', { ...product, purchaseQuantity: 1 });
         };
     };
 

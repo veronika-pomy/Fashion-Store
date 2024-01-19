@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import React, { useEffect } from 'react';
 import { useShopContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
-import { updateDB } from '../../utils/helper';
+import { indexedDBStore } from '../../utils/helper';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import Product from '../Product/Product';
 // Loading Component
@@ -22,10 +22,10 @@ const Products = () => {
         products: data.products,
       });
       data.products.forEach((product) => {
-        updateDB('products', 'put', product);
+        indexedDBStore('products', 'put', product);
       });
     } else if (!loading) {
-      updateDB('products', 'get').then((products) => {
+      indexedDBStore('products', 'get').then((products) => {
         dispatch({
           type: UPDATE_PRODUCTS,
           products: products,
@@ -34,7 +34,7 @@ const Products = () => {
     };
   },  [ data, loading, dispatch ]);
 
-  const filterProductsByCat = () => {
+  const filterProductsByCategory = () => {
     if (!currentCategory) {
       return state.products;
     }
@@ -50,7 +50,7 @@ const Products = () => {
       {state.products.length ? (
         <div>
           {
-            filterProductsByCat().map((product) =>(
+            filterProductsByCategory().map((product) =>(
               <Product
                 key={product._id}
                 product={product}

@@ -1,25 +1,25 @@
-export function updateDB(storeName, method, object) {
+export function indexedDBStore(storeName, method, object) {
     return new Promise((resolve, reject) => {
         const request = window.indexedDB.open('e-shop', 1);
-        let db, 
-            tx, 
-            store;
+        let db, tx, store;
         request.onupgradeneeded = function(e) {
-            const db = request.result;
-            db.createObjectStore('products', { keyPath: '_id' });
-            db.createObjectStore('categories', { keyPath: '_id' });
-            db.createObjectStore('cart', { keyPath: '_id' });
+            const newObjectStore = request.result;
+            newObjectStore.createObjectStore('products', { keyPath: '_id' });
+            newObjectStore.createObjectStore('categories', { keyPath: '_id' });
+            newObjectStore.createObjectStore('cart', { keyPath: '_id' });
         };
+
         request.onerror = function(e) {
             console.log('Unexpected error.');
         };
+
         request.onsuccess = function(e) {
             db = request.result;
             tx = db.transaction(storeName, 'readwrite');
             store = tx.objectStore(storeName);
         
             db.onerror = function(e) {
-                console.log('Unexpected error.');
+              console.log('Unexpected error.', e);
             };
 
             switch (method) {
@@ -40,6 +40,7 @@ export function updateDB(storeName, method, object) {
                     console.log('Error. Not a valid method.');
                     break;
             };
+
             tx.oncomplete = function() {
                 db.close();
             };

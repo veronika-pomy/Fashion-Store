@@ -9,7 +9,7 @@ import {
     UPDATE_CART_QUANTITY,
     UPDATE_PRODUCTS,
 } from '../../utils/actions';
-import { updateDB } from '../../utils/helper';
+import { indexedDBStore } from '../../utils/helper';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 // Loading Component
 
@@ -27,26 +27,25 @@ const ProductDetail = () => {
 
     useEffect(() => {
 
-        if (products.length) setProduct(products.find((product) => product._id === id));
-        else if (data) {
+        if (products.length) {
+            setProduct(products.find((product) => product._id === id));
+        } else if (data) {
             dispatch({
                 type: UPDATE_PRODUCTS,
                 products: data.products,
             });
         
             data.products.forEach((product) => {
-                updateDB('products', 'put', product);
+                indexedDBStore('products', 'put', product);
             });
-        }
-        else if (!loading) {
-            updateDB('products', 'get').then((idxProducts) => {
+        } else if (!loading) {
+            indexedDBStore('products', 'get').then((idxProducts) => {
                 dispatch({
                   type: UPDATE_PRODUCTS,
                   products: idxProducts,
                 });
             });
-        } 
-
+        };
     }, [ products, data, loading, dispatch, id ]);
 
     const addToCart = () => {
@@ -57,7 +56,7 @@ const ProductDetail = () => {
                 _id: id,
                 purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
             });
-            updateDB('cart', 'put', {
+            indexedDBStore('cart', 'put', {
                 ...itemInCart,
                 purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
             });
@@ -66,16 +65,16 @@ const ProductDetail = () => {
                 type: ADD_TO_CART,
                 product: { ...product, purchaseQuantity: 1 },
             });
-            updateDB('cart', 'put', { ...product, purchaseQuantity: 1 });
+            indexedDBStore('cart', 'put', { ...product, purchaseQuantity: 1 });
         }
-    }
+    };
 
     const removeFromCart = () => {
         dispatch({
             type: REMOVE_FROM_CART,
             _id: product._id,
         });
-        updateDB('cart', 'delete', { ...product });
+        indexedDBStore('cart', 'delete', { ...product });
     }
 
     return (

@@ -9,7 +9,7 @@ const NavBar = () => {
       return (
         <ul>
           <li>
-            <Link to='/orders'>
+            <Link to='/orderHistory'>
               Order History
             </Link>
           </li>

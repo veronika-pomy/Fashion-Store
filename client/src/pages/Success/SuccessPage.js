@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 import React, { useEffect } from 'react';
-import { updateDB } from '../../utils/helper';
+import { indexedDBStore } from '../../utils/helper';
 import { ADD_ORDER } from '../../utils/mutations';
 
 const SuccessPage = () => {
@@ -9,13 +9,13 @@ const SuccessPage = () => {
 
   useEffect(() => {
     const saveOrder = async () => {
-      const cart = await updateDB('cart', 'get')
+      const cart = await indexedDBStore('cart', 'get');
       const products = cart.map((item) => item._id);
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
         const productData = data.addOrder.products;
         productData.forEach((item) => {
-          updateDB('cart', 'delete', item);
+          indexedDBStore('cart', 'delete', item);
         });
       }
 

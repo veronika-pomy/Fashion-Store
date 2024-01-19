@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import React, { useEffect } from 'react';
 import { useShopContext } from '../../utils/GlobalState';
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
-import { updateDB } from '../../utils/helper';
+import { indexedDBStore } from '../../utils/helper';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 
 const CategoryMenu = () => {
@@ -20,10 +20,10 @@ const CategoryMenu = () => {
                 categories: categoryData.categories,
             });
             categoryData.categories.forEach((category) => {
-                updateDB('categories', 'put', category);
+                indexedDBStore('categories', 'put', category);
             });
         } else if (!loading) {
-            updateDB('categories', 'get').then((categories) => {
+            indexedDBStore('categories', 'get').then((categories) => {
                 dispatch({
                   type: UPDATE_CATEGORIES,
                   categories: categories,
@@ -36,20 +36,32 @@ const CategoryMenu = () => {
         dispatch({
             type: UPDATE_CURRENT_CATEGORY,
             currentCategory: id,
-          });
+        });
+    };
+
+    const handleNoFilterByCategory = ( ) => {
+        dispatch({
+            type: UPDATE_CURRENT_CATEGORY,
+            currentCategory: '',
+        });
     };
 
     return (
         <div>
             <h3>Categories</h3>
-            {categories.map((category) => {
+            <button
+                onClick={handleNoFilterByCategory}
+            >
+                All
+            </button>
+            {categories.map((category) => (
                 <button
                     key={category._id}
                     onClick={() => onClickHandler(category._id)}
                 >
                     {category.name}
                 </button>
-            })}
+            ))}
         </div>
     );
 };
