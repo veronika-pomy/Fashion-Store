@@ -7,7 +7,7 @@ const NavBar = () => {
   const authNavigation = () => {
     if(Auth.loggedIn()) {
       return (
-        <ul>
+        <ul className='d-flex flex-row m-0'>
           <li>
             <Link to='/orderHistory'>
               Order History
@@ -22,13 +22,13 @@ const NavBar = () => {
       );
     } else {
       return (
-        <ul>
+        <ul className='d-flex flex-row m-0'>
           <li>
             <Link to='/signup'>
               Sign Up
             </Link>
           </li>
-          <li>
+          <li className='px-2'>
             <Link to='/login'>
               Log In
             </Link>
@@ -39,10 +39,10 @@ const NavBar = () => {
   }
 
   return (
-    <header>
+    <header className='bg-dark d-flex flex-row align-items-center'>
       <h1>
-        <Link to='/'>
-          <span>Saide</span>
+        <Link to='/' className='text-decoration-none text-white'>
+          <span>saide</span>
         </Link>
       </h1>
       <nav>
