@@ -42,11 +42,7 @@ const NavBar = () => {
     <header>
       <h1>
         <Link to='/'>
-          <span arial-label='Logo'>
-            Logo
-          </span>
-          <span> </span>
-            E-Shop
+          <span>Saide</span>
         </Link>
       </h1>
       <nav>
