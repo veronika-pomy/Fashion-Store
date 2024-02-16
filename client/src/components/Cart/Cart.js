@@ -77,7 +77,7 @@ const Cart = () => {
         {/* Change to an icon */}
         <p>close</p>
       </div>
-      <h3>Your Cart</h3>
+      {/* <h3>Your Cart</h3> */}
       {state.cart.length ? 
         (<div>
           {state.cart.map((product) => (

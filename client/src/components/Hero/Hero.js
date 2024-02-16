@@ -1,12 +1,42 @@
-import React from 'react'
+import React from 'react';
+import './Hero.css';
+import { Link } from 'react-scroll';
 
 const Hero = () => {
   return (
-    <img src={`/imgs/hero.jpg`}
-        alt='A fashionable store window with clothes on display' 
-        width='100%' 
-        height='100%'
-    /> 
+    <div id='hero position-relative' className='hero'>
+      <Link
+        spy={true} 
+        span={true} 
+        to='cat-menu'
+      >
+        <button 
+          type="button" 
+          className="btn 
+                    btn-outline-light
+                    position-absolute
+                    z-1 
+                    top-50 
+                    start-50 
+                    translate-middle 
+                    ps-5 
+                    pe-5 
+                    pt-2 
+                    pb-2 
+                    border-2 
+                    fw-bold
+                    text-lowercase"
+          >
+            Shop Now
+        </button>
+      </Link>
+      <img src={`/imgs/hero.jpg`}
+          alt='A fashionable store window with clothes on display' 
+          width='100%' 
+          height='100%'
+          className='position-absolute z-0'
+      /> 
+    </div>
   )
 }
 

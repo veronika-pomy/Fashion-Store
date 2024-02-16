@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useShopContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { mult, indexedDBStore } from "../../utils/helper";
+import './Product.css'
 
 const Product = ({ product }) => {
 
@@ -34,19 +35,29 @@ const Product = ({ product }) => {
     };
 
     return (
-        <div>
-            <Link to={`/products/${_id}`}>
+        <div className='col'>
+            <Link className=' text-decoration-none' to={`/products/${_id}`}>
                 <img
                     alt={name}
                     src={`/imgs/${img}`}
+                    // width='340'
+                    // height='510'
+                    className='img-fluid'
                 />
-                <p>{name}</p>
+                <p className='nav-link text-dark'>{name}</p>
             </Link>
-            <div>
-                <div>{quantity} {mult('product', quantity)} available</div>
+            <div className="center-block">
+                <div>
+                    {quantity} {mult('product', quantity)} available
+                </div>
                 <span>${price}</span>
             </div>
-            <button onClick={addToCart}>Add to cart</button>
+            <button 
+                onClick={addToCart}
+                className='text-lowercase'
+            >
+                Add to cart
+            </button>
         </div>
     );
 };

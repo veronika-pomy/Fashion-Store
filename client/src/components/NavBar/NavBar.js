@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import './NavBar.css'
 
 const NavBar = () => {
 
@@ -22,14 +23,14 @@ const NavBar = () => {
       );
     } else {
       return (
-        <ul className='d-flex flex-row m-0'>
+        <ul className='d-flex flex-row m-0 '>
           <li>
-            <Link to='/signup'>
+            <Link to='/signup' className='nav-link text-white text-black:hover text-decoration-none'>
               Sign Up
             </Link>
           </li>
-          <li className='px-2'>
-            <Link to='/login'>
+          <li className='px-3'>
+            <Link to='/login' className='nav-link text-white text-decoration-none'>
               Log In
             </Link>
           </li>
@@ -39,8 +40,8 @@ const NavBar = () => {
   }
 
   return (
-    <header className='bg-dark d-flex flex-row align-items-center'>
-      <h1>
+    <header className='bg-dark d-flex flex-row align-items-center p-1'>
+      <h1 className='ms-2'>
         <Link to='/' className='text-decoration-none text-white'>
           <span>saide</span>
         </Link>

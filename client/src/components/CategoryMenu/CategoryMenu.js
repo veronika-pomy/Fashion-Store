@@ -47,10 +47,14 @@ const CategoryMenu = () => {
     };
 
     return (
-        <div>
-            <h3>Categories</h3>
+        <div
+            id='cat-menu'
+            className='p-4'
+        >
+            {/* <h3>Categories</h3> */}
             <button
                 onClick={handleNoFilterByCategory}
+                className='text-lowercase'
             >
                 All
             </button>
@@ -58,6 +62,7 @@ const CategoryMenu = () => {
                 <button
                     key={category._id}
                     onClick={() => onClickHandler(category._id)}
+                    className='text-lowercase'
                 >
                     {category.name}
                 </button>

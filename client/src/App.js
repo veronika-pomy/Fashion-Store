@@ -8,7 +8,6 @@ import { setContext } from '@apollo/client/link/context';
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import NavBar from "./components/NavBar/NavBar";
-import Hero from './components/Hero/Hero';
 import Error from './pages/Error/Error';
 import Home from './pages/Home/Home';
 import LogIn from './pages/LogIn/LogIn';
@@ -44,7 +43,6 @@ function App() {
         <div className='app-container'>
           <ShopProvider>
             <NavBar />
-            <Hero />
             <Routes>
               <Route 
                 path="/" 

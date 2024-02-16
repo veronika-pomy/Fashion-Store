@@ -86,10 +86,16 @@ const ProductDetail = () => {
                         <p>{product.description}</p>
                         <p>
                             <strong>Price:</strong>${product.price}{' '}
-                            <button onClick={addToCart}>Add</button>
+                            <button 
+                                onClick={addToCart}
+                                className='text-lowercase'
+                            >
+                                Add
+                            </button>
                             <button
                                 disabled={!cart.find((p) => p._id === product._id)}
                                 onClick={removeFromCart}
+                                className='text-lowercase'
                             >
                                 Remove
                             </button>

@@ -45,10 +45,10 @@ const Products = () => {
   };
 
   return (
-    <div>
-      <h3>Products</h3>
+    <div className='container ps-1 pe-1'>
+      {/* <h3>Products</h3> */}
       {state.products.length ? (
-        <div>
+        <div className='row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 gx-5 gy-5'>
           {
             filterProductsByCategory().map((product) =>(
               <Product
