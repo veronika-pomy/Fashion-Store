@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useShopContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
-import { mult, indexedDBStore } from "../../utils/helper";
-import './Product.css'
+import { indexedDBStore, mult } from "../../utils/helper";
+import './Product.css';
 
 const Product = ({ product }) => {
 
