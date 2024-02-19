@@ -16,6 +16,7 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import SignUp from './pages/SignUp/SignUp';
 import SuccessPage from "./pages/Success/SuccessPage";
 import { ShopProvider } from './utils/GlobalState';
+import Footer from './components/Footer/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -76,6 +77,7 @@ function App() {
           </ShopProvider>
         </div>
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }

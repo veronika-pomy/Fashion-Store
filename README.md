@@ -8,6 +8,8 @@ Stripe
 MongoDB
 GraphQl
 mongoose
+Boostrap
+Sass
 JWT
 bcrypt
 
@@ -18,7 +20,5 @@ ico icon
 
 
 ## Dev
-
 https://www.npmjs.com/package/concurrently?activeTab=readme
 nodemon
-

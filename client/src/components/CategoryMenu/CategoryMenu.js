@@ -4,6 +4,7 @@ import { useShopContext } from '../../utils/GlobalState';
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
 import { indexedDBStore } from '../../utils/helper';
 import { QUERY_CATEGORIES } from '../../utils/queries';
+import './CategoryMenu.css';
 
 const CategoryMenu = () => {
 
@@ -47,14 +48,15 @@ const CategoryMenu = () => {
     };
 
     return (
+        <>
+        <div id='cat-menu' className='cat'></div>
         <div
-            id='cat-menu'
-            className='p-4'
+            className='mt-2 ps-5'
         >
             {/* <h3>Categories</h3> */}
             <button
                 onClick={handleNoFilterByCategory}
-                className='text-lowercase'
+                className='text-lowercase btn btn-link text-dark cat-btn'
             >
                 All
             </button>
@@ -62,12 +64,13 @@ const CategoryMenu = () => {
                 <button
                     key={category._id}
                     onClick={() => onClickHandler(category._id)}
-                    className='text-lowercase'
+                    className='text-lowercase btn btn-link text-dark cat-btn'
                 >
                     {category.name}
                 </button>
             ))}
-        </div>
+        </div></>
+        
     );
 };
 

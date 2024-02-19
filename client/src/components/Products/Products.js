@@ -48,7 +48,7 @@ const Products = () => {
     <div className='container ps-1 pe-1'>
       {/* <h3>Products</h3> */}
       {state.products.length ? (
-        <div className='row row-cols-sm-1 row-cols-md-2 row-cols-xl-3 gx-5 gy-5'>
+        <div className='row justify-content-around row-cols-1 row-cols-md-3 row-cols-xl-3 gx-5 gy-5 mt-4'>
           {
             filterProductsByCategory().map((product) =>(
               <Product

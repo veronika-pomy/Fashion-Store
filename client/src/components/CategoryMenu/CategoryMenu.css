@@ -1,0 +1,12 @@
+.cat-btn:hover {
+    color: rgb(95, 95, 95) !important;
+}
+
+.cat {
+    min-width: auto;
+    min-height: 50px;
+    padding-bottom: 10px !important;
+    margin-bottom: -10px !important;
+    padding-top: 10px !important;
+    margin-top: -10px !important;
+}

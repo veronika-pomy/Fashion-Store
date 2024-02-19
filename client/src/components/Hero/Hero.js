@@ -4,7 +4,7 @@ import './Hero.css';
 
 const Hero = () => {
   return (
-    <div id='hero position-relative' className='hero'>
+    <div id='hero' className='hero position-relative'>
       <Link
         spy={true} 
         span={true} 
@@ -25,7 +25,8 @@ const Hero = () => {
                     pb-2 
                     border-2 
                     fw-bold
-                    text-lowercase"
+                    text-lowercase
+                    rounded-0"
           >
             Shop Now
         </button>

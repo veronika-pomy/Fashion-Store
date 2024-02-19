@@ -25,12 +25,12 @@ const NavBar = () => {
       return (
         <ul className='d-flex flex-row m-0 '>
           <li>
-            <Link to='/signup' className='nav-link text-white text-black:hover text-decoration-none'>
+            <Link to='/signup' className='link text-white  text-decoration-none'>
               Sign Up
             </Link>
           </li>
           <li className='px-3'>
-            <Link to='/login' className='nav-link text-white text-decoration-none'>
+            <Link to='/login' className='link text-white text-decoration-none'>
               Log In
             </Link>
           </li>
@@ -40,7 +40,7 @@ const NavBar = () => {
   }
 
   return (
-    <header className='bg-dark d-flex flex-row align-items-center p-1'>
+    <header className='bg-dark d-flex flex-row align-items-center p-1 sticky-top'>
       <h1 className='ms-2'>
         <Link to='/' className='text-decoration-none text-white'>
           <span>saide</span>

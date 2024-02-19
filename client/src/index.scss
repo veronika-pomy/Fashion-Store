@@ -4,6 +4,9 @@
 @import '../node_modules/bootstrap/scss/variables';
 @import '../node_modules/bootstrap/scss/mixins';
 
+// override Bootstrap default
+$enable-negative-margins: true;
+
 /* :root {
 
 } */

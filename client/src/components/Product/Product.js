@@ -35,26 +35,28 @@ const Product = ({ product }) => {
     };
 
     return (
-        <div className='col'>
-            <Link className=' text-decoration-none' to={`/products/${_id}`}>
+        <div className='product col border border-secondary p-4 m-2 mt-3'>
+            <Link className='text-decoration-none' to={`/products/${_id}`}>
                 <img
                     alt={name}
                     src={`/imgs/${img}`}
                     // width='340'
                     // height='510'
-                    className='img-fluid'
+                    className='img-fluid border border-secondary'
                 />
-                <p className='nav-link text-dark'>{name}</p>
+                <p className='nav-link text-dark mt-1'>{name}</p>
             </Link>
             <div className="center-block">
-                <div>
-                    {quantity} {mult('product', quantity)} available
-                </div>
+                {quantity < 10 && 
+                    <div className='left'>
+                        {quantity} {mult('item', quantity)} left
+                    </div>
+                }
                 <span>${price}</span>
             </div>
             <button 
                 onClick={addToCart}
-                className='text-lowercase'
+                className='text-lowercase btn btn-outline-secondary rounded-0 mt-1'
             >
                 Add to cart
             </button>
