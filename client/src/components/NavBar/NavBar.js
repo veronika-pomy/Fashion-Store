@@ -10,12 +10,12 @@ const NavBar = () => {
       return (
         <ul className='d-flex flex-row m-0'>
           <li>
-            <Link to='/orderHistory'>
+            <Link to='/orderHistory' className='link text-white  text-decoration-none'>
               Order History
             </Link>
           </li>
-          <li> 
-            <Link to="/" onClick={() => Auth.logout()}>
+          <li className='px-3'> 
+            <Link to="/" className='link text-white text-decoration-none' onClick={() => Auth.logout()}>
               Log Out
             </Link>
           </li>

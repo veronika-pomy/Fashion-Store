@@ -39,7 +39,7 @@ const Product = ({ product }) => {
             <Link className='text-decoration-none' to={`/products/${_id}`}>
                 <img
                     alt={name}
-                    src={`/imgs/${img}`}
+                    src={require(`../../assets/imgs/${img}`)}
                     // width='340'
                     // height='510'
                     className='img-fluid border border-secondary'

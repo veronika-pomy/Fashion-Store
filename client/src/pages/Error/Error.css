@@ -1,0 +1,7 @@
+.error {
+    height: 100vh !important;
+}
+
+img {
+    object-fit: cover;
+}
