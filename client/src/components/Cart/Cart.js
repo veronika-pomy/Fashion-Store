@@ -65,7 +65,6 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div onClick={toggleCart}>
-        {/* Change to an icon */}
         <p>cart</p>
       </div>
     );
@@ -74,10 +73,8 @@ const Cart = () => {
   return (
     <div>
       <div onClick={toggleCart}>
-        {/* Change to an icon */}
         <p>close</p>
       </div>
-      {/* <h3>Your Cart</h3> */}
       {state.cart.length ? 
         (<div>
           {state.cart.map((product) => (

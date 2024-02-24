@@ -11,7 +11,6 @@ import {
 } from '../../utils/actions';
 import { indexedDBStore } from '../../utils/helper';
 import { QUERY_PRODUCTS } from '../../utils/queries';
-// Loading Component
 
 const ProductDetail = () => {
 
@@ -101,7 +100,7 @@ const ProductDetail = () => {
                             </button>
                         </p>
                         <img
-                            src={`/imgs/${product.img}`}
+                            src={require(`../../assets/imgs/${product.img}`)}
                             alt={product.name}
                          />
                     </div>)

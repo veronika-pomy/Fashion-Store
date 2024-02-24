@@ -25,7 +25,10 @@ const OrderHistory = () => {
                                 {order.products.map(({ _id, img, name, price }, index) => (
                                     <div key={index}>
                                         <Link to={`/products/${_id}`}>
-                                            <img alt={name} src={`/imgs/${img}`} />
+                                            <img 
+                                                alt={name} 
+                                                src={require(`../../assets/imgs/${img}`)} 
+                                            />
                                             <p>{name}</p>
                                         </Link>
                                         <span>${price}</span>

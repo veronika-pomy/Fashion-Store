@@ -37,7 +37,7 @@ const ProductInCart = ({ product }) => {
         <div>
             <div>
                 <img
-                    src={`/imgs/${product.img}`}
+                    src={require(`../../assets/imgs/${product.img}`)}
                     alt={`${product.description}`}
                 />
             </div>
@@ -51,7 +51,6 @@ const ProductInCart = ({ product }) => {
                         value={product.purchaseQuantity}
                         onChange={onChange}
                     />
-                    {/* Replace with icon */}
                     <span
                         onClick={() => removeFromCart(product)}
                     >
