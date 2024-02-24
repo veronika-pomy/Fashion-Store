@@ -44,7 +44,7 @@ const Products = () => {
   };
 
   return (
-    <div className='container ps-1 pe-1'>
+    <div className='container ps-1 pe-1 pb-5'>
       {state.products.length ? (
         <div className='row justify-content-around row-cols-1 row-cols-md-3 row-cols-xl-3 gx-5 gy-5 mt-4'>
           {

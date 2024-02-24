@@ -1,0 +1,26 @@
+.cart {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 4px solid #959393;
+}
+
+.close {
+    cursor: pointer;
+}
+
+.close:hover {
+    color: rgb(208, 208, 208);
+}
+
+.cart > p {
+    font-size: 14px;
+}
+
+.checkout-btn {
+    max-width: 150px;
+}
+
+.link:hover {
+    color: rgb(208, 208, 208) !important;
+}

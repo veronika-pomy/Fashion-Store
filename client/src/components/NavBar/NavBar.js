@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import Cart from '../Cart/Cart';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -40,15 +41,16 @@ const NavBar = () => {
   }
 
   return (
-    <header className='bg-dark d-flex flex-row align-items-center p-1 sticky-top'>
+    <header className='bg-dark d-flex flex-row align-items-center p-1 sticky-top position-relative'>
       <h1 className='ms-2'>
         <Link to='/' className='text-decoration-none text-white'>
           <span>saide</span>
         </Link>
       </h1>
-      <nav>
+      <nav className=''>
         {authNavigation()}
       </nav>
+      <Cart />
     </header>
   )
 }
