@@ -51,6 +51,7 @@ const Cart = () => {
   };
   
   const checkoutHandler = () => {
+
     const productIds = [];
 
     state.cart.forEach((product) => {
@@ -77,7 +78,7 @@ const Cart = () => {
 
   return (
     <div className='cart text-white bg-dark position-absolute top-0 end-0 mt-6'>
-      <div onClick={toggleCart} className='m-2'>
+      <div onClick={toggleCart} className='cart-close m-2'>
         <p className='close text-end'>
           <MdOutlineClose size={20} />
         </p>
@@ -87,17 +88,17 @@ const Cart = () => {
           {state.cart.map((product) => (
             <ProductInCart key={product._id} product={product} />
           ))}
-          <div className='d-flex flex-column'>
+          <div className='d-flex flex-column mt-3'>
             <strong>Total: ${calcTotal()}</strong>
             {Auth.loggedIn() ? (
               <button 
                 onClick={checkoutHandler}
-                className='checkout-btn btn btn-outline-light rounded-0 text-lowercase'
+                className='checkout-btn btn btn-outline-light rounded-0 text-lowercase mt-3'
               >
-                Check out
+                check out
               </button>
             ) : (
-              <Link to='/login' className='link text-decoration-none text-white'>
+              <Link to='/login' className='link text-decoration-none text-white mt-3'>
                 Log in to check out
               </Link>
             )}

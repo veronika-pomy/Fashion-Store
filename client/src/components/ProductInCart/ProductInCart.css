@@ -1,0 +1,15 @@
+.cart-wrapper {
+    width: fit-content;
+}
+
+.cart-img {
+    width: 8rem;
+}
+
+.qunt-input {
+    width: 2rem;
+}
+
+.cart-description {
+    font-size: smaller;
+}

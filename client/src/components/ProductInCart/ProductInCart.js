@@ -2,6 +2,7 @@ import React from 'react';
 import { useShopContext } from '../../utils/GlobalState';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { indexedDBStore } from '../../utils/helper';
+import './ProductInCart.css';
 
 const ProductInCart = ({ product }) => {
 
@@ -34,25 +35,29 @@ const ProductInCart = ({ product }) => {
     };
 
     return (
-        <div>
-            <div>
+        <div className='cart-wrapper ms-4'>
+            <div className='mt-4'>
                 <img
+                    className='cart-img'
                     src={require(`../../assets/imgs/${product.img}`)}
                     alt={`${product.description}`}
                 />
             </div>
-            <div>
-                <div>{product.name}, ${product.price}</div>
+            <div className='cart-description h-75 ms-6'>
+                <div>{product.name}</div>
                 <div>
-                    <span>Quantity:</span>
+                    <div>${product.price}</div>
+                    <div>Quantity:</div>
                     <input
                         type="number"
                         placeholder="1"
                         value={product.purchaseQuantity}
                         onChange={onChange}
+                        className='qunt-input me-2'
                     />
                     <span
                         onClick={() => removeFromCart(product)}
+                        role='button'
                     >
                         X
                     </span>

@@ -78,7 +78,8 @@ const ProductDetail = () => {
 
     return (
         <>
-            {product && cart ? 
+        <>TEST</>
+            {/* {product && cart ? 
                     (<div>
                         <Link to="/">Return</Link>
                         <h3>{product.name}</h3>
@@ -108,7 +109,7 @@ const ProductDetail = () => {
                     null
             }
             {loading ? <p>Loading...</p>: null}
-            <Cart />
+            <Cart /> */}
         </>
     );
 }
