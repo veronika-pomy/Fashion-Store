@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-import heroImg from '../../assets/imgs/hero.jpg';
+import heroimage from '../../assets/images/hero.jpg';
 import './Hero.css';
 
 const Hero = () => {
@@ -32,7 +32,7 @@ const Hero = () => {
             Shop Now
         </button>
       </Link>
-      <img src={heroImg}
+      <img src={heroimage}
           alt='A fashionable store window with clothes on display' 
           width='100%' 
           height='100%'

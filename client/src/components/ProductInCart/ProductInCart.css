@@ -13,3 +13,18 @@
 .cart-description {
     font-size: smaller;
 }
+
+.product-name,
+.product-wrapper {
+    max-width: 150px !important;
+}
+
+.delete-item-btn {
+    font-weight: bold;
+}
+
+/* ensures the increment/decrement arrows always display */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}

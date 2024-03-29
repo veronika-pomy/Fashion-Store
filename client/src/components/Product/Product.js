@@ -9,7 +9,7 @@ const Product = ({ product }) => {
 
     const [ state, dispatch ] = useShopContext();
 
-    const { _id, img, name, price, quantity } = product;
+    const { _id, image, name, price, quantity } = product;
 
     const { cart } = state;
 
@@ -39,7 +39,7 @@ const Product = ({ product }) => {
             <Link className='text-decoration-none' to={`/products/${_id}`}>
                 <img
                     alt={name}
-                    src={require(`../../assets/imgs/${img}`)}
+                    src={require(`../../assets/images/${image}`)}
                     // width='340'
                     // height='510'
                     className='img-fluid border border-secondary'

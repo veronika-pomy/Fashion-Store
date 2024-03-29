@@ -2,7 +2,7 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    border: 4px solid #ffffff;
+    border: 3px solid rgb(107, 107, 108);
 }
 
 .close {
@@ -10,7 +10,7 @@
 }
 
 .close:hover {
-    color: rgb(208, 208, 208);
+    color: rgb(107, 107, 108);
 }
 
 .cart > p {
@@ -21,6 +21,7 @@
     max-width: 150px;
 }
 
-.link:hover {
-    color: rgb(208, 208, 208) !important;
+.checkout-link:hover {
+    color: rgb(107, 107, 108) !important;
+    text-decoration: underline  !important;
 }

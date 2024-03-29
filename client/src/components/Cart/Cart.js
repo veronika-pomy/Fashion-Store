@@ -1,7 +1,7 @@
 import { useLazyQuery } from '@apollo/client';
 import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect } from 'react';
-import { MdOutlineClose, MdOutlineShoppingBag } from "react-icons/md";
+import { MdOutlineShoppingBag } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { useShopContext } from '../../utils/GlobalState';
 import { ADD_MULTIPLE_TO_CART, TOGGLE_CART } from '../../utils/actions';
@@ -28,7 +28,7 @@ const Cart = () => {
   }, [ data ]);
 
   useEffect(() => {
-    const getCart = async () => {
+    async function getCart () {
       const cart = await indexedDBStore('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     };
@@ -38,11 +38,11 @@ const Cart = () => {
     };
   }, [ state.cart.length, dispatch ]);
 
-  const toggleCart = () => {
+  function toggleCart () {
     dispatch({ type: TOGGLE_CART });
   };
 
-  const calcTotal = () => {
+  function calcTotal () {
     let sum = 0;
     state.cart.forEach((product) => {
       sum += product.price * product.purchaseQuantity;
@@ -50,7 +50,9 @@ const Cart = () => {
     return sum.toFixed(2);
   };
   
-  const checkoutHandler = () => {
+  function checkoutHandler () {
+
+    console.log('checkout btn clicked');
 
     const productIds = [];
 
@@ -77,28 +79,31 @@ const Cart = () => {
   }
 
   return (
-    <div className='cart text-white bg-dark position-absolute top-0 end-0 mt-6'>
+    <div className='cart text-dark bg-white position-absolute top-0 end-0'>
       <div onClick={toggleCart} className='cart-close m-2'>
-        <p className='close text-end'>
-          <MdOutlineClose size={20} />
+        <p className='close text-end fs-6'>
+          [close]
         </p>
       </div>
+      <h6 className='text-dark text-center m-4'>Your Shopping Cart</h6>
+      <hr className=' border border-dark ms-4 me-4'/>
       {state.cart.length ? 
-        (<div className='m-4'>
+        (<div className='m-5'>
           {state.cart.map((product) => (
             <ProductInCart key={product._id} product={product} />
           ))}
           <div className='d-flex flex-column mt-3'>
             <strong>Total: ${calcTotal()}</strong>
+            <hr className=' border border-dark' />
             {Auth.loggedIn() ? (
               <button 
                 onClick={checkoutHandler}
-                className='checkout-btn btn btn-outline-light rounded-0 text-lowercase mt-3'
+                className='checkout-btn btn btn-dark rounded-0 text-lowercase mt-3'
               >
                 check out
               </button>
             ) : (
-              <Link to='/login' className='link text-decoration-none text-white mt-3'>
+              <Link to='/login' className=' text-center checkout-link text-decoration-none text-dark mt-3'>
                 Log in to check out
               </Link>
             )}
@@ -106,7 +111,7 @@ const Cart = () => {
         </div>)
       :
         (<p className='m-4'>
-          Your cart is empty
+          empty
         </p>
       )}
     </div>

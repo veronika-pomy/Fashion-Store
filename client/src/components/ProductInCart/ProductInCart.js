@@ -36,28 +36,29 @@ const ProductInCart = ({ product }) => {
 
     return (
         <div className='cart-wrapper ms-4'>
-            <div className='mt-4'>
+            <div className='mt-4 product-wrapper'>
                 <img
                     className='cart-img'
-                    src={require(`../../assets/imgs/${product.img}`)}
+                    src={require(`../../assets/images/${product.img}`)}
                     alt={`${product.description}`}
                 />
             </div>
-            <div className='cart-description h-75 ms-6'>
-                <div>{product.name}</div>
+            <div className='cart-description h-75'>
+                <div className='product-name'>{product.name}</div>
                 <div>
-                    <div>${product.price}</div>
+                    <div >${product.price}</div>
                     <div>Quantity:</div>
                     <input
                         type="number"
                         placeholder="1"
                         value={product.purchaseQuantity}
                         onChange={onChange}
-                        className='qunt-input me-2'
+                        className='qunt-input me-2 border border-dark mt-1'
                     />
                     <span
                         onClick={() => removeFromCart(product)}
                         role='button'
+                        className='delete-item-btn'
                     >
                         X
                     </span>

@@ -38,14 +38,14 @@ export const reducer = (state, action) => {
             });
             return {
                 ...state,
-                cartOpen: newState.length > 0,
+                cartOpen: true,
                 cart: newState,
             };
         
         case CLEAR_CART:
             return {
                 ...state,
-                cartOpen: false,
+                cartOpen: true,
                 cart: [],
             };
 

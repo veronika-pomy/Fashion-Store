@@ -78,7 +78,7 @@ const ProductDetail = () => {
 
     return (
         <>
-        <>TEST</>
+            <h1>TEST</h1>
             {/* {product && cart ? 
                     (<div>
                         <Link to="/">Return</Link>
@@ -100,8 +100,8 @@ const ProductDetail = () => {
                                 Remove
                             </button>
                         </p>
-                        <img
-                            src={require(`../../assets/imgs/${product.img}`)}
+                        <image
+                            src={require(`../../assets/images/${product.image}`)}
                             alt={product.name}
                          />
                     </div>)
@@ -111,6 +111,7 @@ const ProductDetail = () => {
             {loading ? <p>Loading...</p>: null}
             <Cart /> */}
         </>
+
     );
 }
 
