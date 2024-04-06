@@ -5,7 +5,7 @@ import { indexedDBStore } from '../../utils/helper';
 import './ProductInCart.css';
 
 const ProductInCart = ({ product }) => {
-
+    
     const [, dispatch ] = useShopContext();
 
     const removeFromCart = product => {
@@ -39,7 +39,7 @@ const ProductInCart = ({ product }) => {
             <div className='mt-4 product-wrapper'>
                 <img
                     className='cart-img'
-                    src={require(`../../assets/images/${product.img}`)}
+                    src={`/images/${product.image}`}
                     alt={`${product.description}`}
                 />
             </div>

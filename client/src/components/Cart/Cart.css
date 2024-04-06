@@ -21,7 +21,13 @@
     max-width: 150px;
 }
 
+.checkout-btn:hover {
+    cursor:pointer;
+
+}
+
 .checkout-link:hover {
     color: rgb(107, 107, 108) !important;
     text-decoration: underline  !important;
+   
 }

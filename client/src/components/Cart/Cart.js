@@ -25,7 +25,7 @@ const Cart = () => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
-  }, [ data ]);
+  }, [ data]);
 
   useEffect(() => {
     async function getCart () {
@@ -52,20 +52,18 @@ const Cart = () => {
   
   function checkoutHandler () {
 
-    console.log('checkout btn clicked');
-
     const productIds = [];
 
     state.cart.forEach((product) => {
       for (let i = 0; i < product.purchaseQuantity; i++) {
         productIds.push(product._id);
-      }
+      };
     });
 
     getCheckout({
       variables: { products: productIds },
     });
-  }
+  };
 
   if (!state.cartOpen) {
     return (
@@ -85,7 +83,7 @@ const Cart = () => {
           [close]
         </p>
       </div>
-      <h6 className='text-dark text-center m-4'>Your Shopping Cart</h6>
+      <h5 className='text-dark text-center m-4'>Your Shopping Cart</h5>
       <hr className=' border border-dark ms-4 me-4'/>
       {state.cart.length ? 
         (<div className='m-5'>
@@ -103,7 +101,7 @@ const Cart = () => {
                 check out
               </button>
             ) : (
-              <Link to='/login' className=' text-center checkout-link text-decoration-none text-dark mt-3'>
+              <Link to='/login' className='text-center checkout-link text-decoration-none text-dark mt-3'>
                 Log in to check out
               </Link>
             )}

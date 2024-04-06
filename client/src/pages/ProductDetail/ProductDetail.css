@@ -1,0 +1,13 @@
+.product-detail-container {
+    height: 100vh !important;
+    margin-top: 7vh;
+}
+
+.description-wrapper {
+    max-width: 40vw;
+}
+
+.return-link:hover {
+    color: rgb(107, 107, 108) !important;
+    text-decoration: underline  !important;
+}

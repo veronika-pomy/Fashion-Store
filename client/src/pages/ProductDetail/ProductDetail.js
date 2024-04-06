@@ -1,7 +1,6 @@
 import { useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Cart from '../../components/Cart/Cart';
 import { useShopContext } from '../../utils/GlobalState';
 import {
     ADD_TO_CART,
@@ -11,6 +10,7 @@ import {
 } from '../../utils/actions';
 import { indexedDBStore } from '../../utils/helper';
 import { QUERY_PRODUCTS } from '../../utils/queries';
+import './ProductDetail.css';
 
 const ProductDetail = () => {
 
@@ -77,40 +77,56 @@ const ProductDetail = () => {
     }
 
     return (
-        <>
-            <h1>TEST</h1>
-            {/* {product && cart ? 
-                    (<div>
-                        <Link to="/">Return</Link>
-                        <h3>{product.name}</h3>
-                        <p>{product.description}</p>
-                        <p>
-                            <strong>Price:</strong>${product.price}{' '}
-                            <button 
-                                onClick={addToCart}
-                                className='text-lowercase'
-                            >
-                                Add
-                            </button>
-                            <button
-                                disabled={!cart.find((p) => p._id === product._id)}
-                                onClick={removeFromCart}
-                                className='text-lowercase'
-                            >
-                                Remove
-                            </button>
-                        </p>
-                        <image
-                            src={require(`../../assets/images/${product.image}`)}
+        <div className='product-detail-container position relative ms-4'>
+            {product && cart ? 
+                    (<div className='d-flex flex-row flex-wrap ms-4 '>
+                        <img
+                            src={`/images/${product.image}`}
                             alt={product.name}
+                            width='340'
+                            height='510'
+                            className='ms-4 mt-5 me-4'
                          />
+                        <div className='ms-5 mt-5'>
+                            <Link 
+                                className='return-link 
+                                            text-center 
+                                            text-decoration-none 
+                                            text-dark 
+                                            mt-3
+                                        ' 
+                                to="/"
+                            >
+                                Return to the main store    
+                            </Link>
+                            <h3>{product.name}</h3>
+                            <p className='description-wrapper fs-6'>{product.description}</p>
+                            <p>
+                                <strong>Price:</strong>${product.price}{' '}
+                                <div className='mt-2'>
+                                    <button 
+                                        onClick={addToCart}
+                                        className='text-lowercase me-2 btn btn-dark rounded-0'
+                                    >
+                                        Add
+                                    </button>
+                                    <button
+                                        disabled={!cart.find((p) => p._id === product._id)}
+                                        onClick={removeFromCart}
+                                        className='text-lowercase btn btn-dark rounded-0'
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                
+                            </p>
+                        </div>
                     </div>)
                 :
                     null
             }
             {loading ? <p>Loading...</p>: null}
-            <Cart /> */}
-        </>
+        </div>
 
     );
 }

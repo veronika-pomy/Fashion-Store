@@ -5,7 +5,7 @@ import './Hero.css';
 
 const Hero = () => {
   return (
-    <div id='hero' className='hero position-relative'>
+    <div id='hero' className='hero '>
       <Link
         spy={true} 
         span={true} 

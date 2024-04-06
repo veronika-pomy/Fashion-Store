@@ -21,6 +21,11 @@
 
 .delete-item-btn {
     font-weight: bold;
+    cursor: pointer;
+}
+
+.delete-item-btn:hover {
+    cursor: pointer;
 }
 
 /* ensures the increment/decrement arrows always display */
