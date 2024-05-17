@@ -1,8 +1,23 @@
+.shopping-icon:hover {
+    cursor: pointer;
+}
+
 .cart {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border: 3px solid rgb(107, 107, 108);
+    max-height: 75vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.cart::-webkit-scrollbar {
+    display: none;
+}
+
+.cart:hover {
+    cursor: pointer;
 }
 
 .close {
@@ -19,6 +34,8 @@
 
 .checkout-btn {
     max-width: 150px;
+    margin: 0 auto;
+    display: block;
 }
 
 .checkout-btn:hover {

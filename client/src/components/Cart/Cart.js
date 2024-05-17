@@ -16,7 +16,6 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 const Cart = () => {
 
   const [ state, dispatch ] = useShopContext();
-
   const [ getCheckout, { data } ] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
@@ -25,17 +24,17 @@ const Cart = () => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
-  }, [ data]);
+  }, [ data ]);
 
   useEffect(() => {
-    async function getCart () {
+    async function getCart() {
       const cart = await indexedDBStore('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
-    };
+    }
 
     if (!state.cart.length) {
       getCart();
-    };
+    }
   }, [ state.cart.length, dispatch ]);
 
   function toggleCart () {
@@ -51,7 +50,6 @@ const Cart = () => {
   };
   
   function checkoutHandler () {
-
     const productIds = [];
 
     state.cart.forEach((product) => {
@@ -68,7 +66,7 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div 
-        className='text-white position-absolute top-0 end-0 z-1 me-4 mt-2'
+        className='shopping-icon text-white position-absolute top-0 end-0 z-1 me-4 mt-2'
         onClick={toggleCart}
       >
         <MdOutlineShoppingBag size={26} />
@@ -85,8 +83,8 @@ const Cart = () => {
       </div>
       <h5 className='text-dark text-center m-4'>Your Shopping Cart</h5>
       <hr className=' border border-dark ms-4 me-4'/>
-      {state.cart.length ? 
-        (<div className='m-5'>
+      {state.cart.length ? (
+        <div className='m-5'>
           {state.cart.map((product) => (
             <ProductInCart key={product._id} product={product} />
           ))}
