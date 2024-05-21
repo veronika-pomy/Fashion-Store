@@ -5,7 +5,7 @@ import './Hero.css';
 
 const Hero = () => {
   return (
-    <div id='hero' className='hero '>
+    <div id='hero' className='hero position-relative'>
       <Link
         spy={true} 
         span={true} 
@@ -14,12 +14,10 @@ const Hero = () => {
         <button 
           type="button" 
           className="btn 
+                    btn-shop-now
                     btn-outline-light
                     position-absolute
                     z-1 
-                    top-50 
-                    start-50 
-                    translate-middle 
                     ps-5 
                     pe-5 
                     pt-2 

@@ -1,5 +1,5 @@
 import React from 'react';
-import errorimage from '../../assets/images/error.jpg';
+import errorImage from '../../assets/images/error.jpg';
 import './Error.css';
 
 const Error = () => {
@@ -10,7 +10,7 @@ const Error = () => {
       >
         The page you are looking for doesn't exist.
       </h1>
-      <image src={errorimage}
+      <img src={errorImage}
         alt='Error page' 
         width='100%' 
         height='100%'
