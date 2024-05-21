@@ -1,0 +1,15 @@
+.success-wrapper {
+    background-image: url(../../assets/images/success.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh !important;
+}
+
+.success-msg-wrapper {
+    mix-blend-mode: difference;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
