@@ -16,8 +16,8 @@ import OrderHistory from "./pages/OrderHistory/OrderHistory";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import SignUp from './pages/SignUp/SignUp';
 import SuccessPage from "./pages/Success/SuccessPage";
-import Cart from './components/Cart/Cart';
 import { ShopProvider } from './utils/GlobalState';
+import ScrollToTop from './utils/ScrollUp';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,6 +44,7 @@ function App() {
       <Router>
         <div className='app-container'>
           <ShopProvider>
+            <ScrollToTop />
             <NavBar />
             <Routes>
               <Route 

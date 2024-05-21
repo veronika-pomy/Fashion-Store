@@ -79,19 +79,17 @@ const ProductDetail = () => {
     return (
         <div className='product-detail-container position relative ms-4'>
             {product && cart ? 
-                    (<div className='d-flex flex-row flex-wrap ms-4 '>
+                    (<div className='prod-wrapper d-flex flex-row flex-wrap'>
                         <img
                             src={`/images/${product.image}`}
                             alt={product.name}
-                            width='340'
-                            height='510'
-                            className='ms-4 mt-5 me-4'
+                            className='prod-img ms-4 mt-5 me-4'
                          />
-                        <div className='ms-5 mt-5'>
+                        <div className='text-wrapper'>
                             <Link 
                                 className='return-link 
                                             text-center 
-                                            text-decoration-none 
+                                            text-decoration-underline
                                             text-dark 
                                             mt-3
                                         ' 
@@ -99,10 +97,10 @@ const ProductDetail = () => {
                             >
                                 Return to the main store    
                             </Link>
-                            <h3>{product.name}</h3>
-                            <p className='description-wrapper fs-6'>{product.description}</p>
+                            <h3 className='prod-name'>{product.name}</h3>
+                            <p className='description-wrapper'>{product.description}</p>
                             <p>
-                                <strong>Price:</strong>${product.price}{' '}
+                                <strong>Price:</strong>{' '}${product.price}{' '}
                                 <div className='mt-2'>
                                     <button 
                                         onClick={addToCart}
