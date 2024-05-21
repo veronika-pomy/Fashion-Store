@@ -10,7 +10,6 @@ const SuccessPage = () => {
 
   const [ addOrder ] = useMutation(ADD_ORDER);
 
-
   useEffect(() => {
     // save order details
     const saveOrder = async () => {
