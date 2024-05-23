@@ -1,9 +1,9 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import OrderCard from '../../components/OrderCard/OrderCard.js';
 import { QUERY_USER } from '../../utils/queries';
 import './OrderHistory.css';
-import OrderCard from '../../components/OrderCard/OrderCard.js';
 
 const OrderHistory = () => {
 
