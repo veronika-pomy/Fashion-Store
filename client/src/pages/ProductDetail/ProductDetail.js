@@ -91,8 +91,7 @@ const ProductDetail = () => {
                                             text-center 
                                             text-decoration-underline
                                             text-dark 
-                                            mt-3
-                                        ' 
+                                            mt-3' 
                                 to="/"
                             >
                                 Return to the main store    

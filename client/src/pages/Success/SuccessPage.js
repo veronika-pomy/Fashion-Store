@@ -6,7 +6,7 @@ import './SuccessPage.css';
 
 const SuccessPage = () => {
 
-  const [counter, setCounter] = useState(5);
+  const [ counter, setCounter ] = useState(5);
 
   const [ addOrder ] = useMutation(ADD_ORDER);
 

@@ -2,6 +2,8 @@ import { useQuery } from '@apollo/client';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { QUERY_USER } from '../../utils/queries';
+import './OrderHistory.css';
+import OrderCard from '../../components/OrderCard/OrderCard.js';
 
 const OrderHistory = () => {
 
@@ -10,41 +12,49 @@ const OrderHistory = () => {
 
     if (data) user = data.user;
 
+    if (!user) 
+        return (
+            <div className='login-redirect-wrapper'>
+                <p className='login-redirect'>
+                        Please <Link 
+                            className='order-history-link 
+                                        text-center text-decoration-underline
+                                        text-dark' 
+                            to='/login'>
+                                Log in
+                        </Link> to continue.
+                </p>
+            </div>
+        );
+
     return (
-        <div>
-            <Link to="/">Return</Link>
-
-            {user ? 
-                (
-                    <div>
-                        <h3>{user.username}'s Order History</h3>
-                        {user.orders.map((order) => (
-                            <div key={order._id}>
-                                <h4>{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</h4>
-                                <div>
-                                {order.products.map(({ _id, image, name, price }, index) => (
-                                    <div key={index}>
-                                        <Link to={`/products/${_id}`}>
-                                            <img 
-                                                alt={name} 
-                                                src={require(`../../assets/images/${image}`)} 
-                                            />
-                                            <p>{name}</p>
-                                        </Link>
-                                        <span>${price}</span>
-                                    </div>
-                                ))}
-                                </div>
-                            </div>
-                        ))}
+        <div
+            className='order-history-container'
+        >
+            <Link 
+                to="/"
+                className='order-history-link-return
+                            text-center 
+                            text-decoration-underline
+                            text-dark'
+            >
+                Return
+            </Link>
+            <div className='fs-6 text-dark'>
+                {user.orders.map((order) => (
+                    <div 
+                        className='mt-3'
+                        key={order._id}
+                    >
+                        <p className='d-inline'>{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</p>
+                        <div className='d-inline'>
+                            <OrderCard order={order} />
+                        </div>
                     </div>
-                ) 
-            :
-                null
-            }
-
+                ))}
+            </div>
         </div>
-    )
-}
+    );
+};
 
 export default OrderHistory;
