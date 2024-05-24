@@ -6,6 +6,10 @@
     height: 100vh !important;
 }
 
+.signup-link:hover {
+    text-decoration: none !important;
+}
+
 .login-btn {
     max-width: 150px;
 }

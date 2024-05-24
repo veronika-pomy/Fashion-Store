@@ -42,8 +42,13 @@ const LogIn = () => {
     return(
         <div className='login-wrapper d-flex flex-column align align-items-center justify-content-center'>
             <div className='d-flex flex-column text-white'>
-                <Link to='/signup' className="align-self-end text-white">
-                    To Sign Up
+                <Link to='/signup' 
+                    className='signup-link
+                                align-self-end 
+                                text-white 
+                                text-decoration-underline 
+                                '>
+                    Sign Up
                 </Link>
                 <h2 className='mt-2'>Log In</h2>
                 <form 
