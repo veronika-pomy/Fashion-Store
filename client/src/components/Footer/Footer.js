@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className='d-flex flex-column flex-md-row align-center justify-content-evenly bg-dark text-white p-4'>
+    <div className='d-flex flex-column flex-md-row align-center justify-content-evenly bg-dark text-white p-4 position-relative z-1'>
         <div className='mt-5'>
             <p className='footer-el mt-4'> Our Story</p>
             <p className='footer-el mt-4'>Testimonials</p> 

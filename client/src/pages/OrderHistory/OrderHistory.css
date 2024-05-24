@@ -1,7 +1,6 @@
 .order-history-container {
     height: 100vh !important;
     margin-top: 7vh;
-    margin-left: 3vw;
 }
 
 .login-redirect-wrapper {
@@ -19,12 +18,6 @@
     transform: translate(-50%, -50%);
 }
 
-.login-link,
-.order-history-link-return,
-.order-history-product-link:hover {
-    text-decoration: none  !important;
-}
-
-#order-history-prod-wrapper {
-    display: inline !important;
+.order-history-link:hover {
+    text-decoration: none !important;
 }

@@ -8,10 +8,11 @@ const OrderCard = ({ order }) => {
     return (
         <div>
         {order.products.map(({ _id, image, name, price }, index) => (
-            <div key={index} id='order-history-prod-wrapper d-inline'>
+            <div key={index} >
                 <Link 
                     className='
-                        order-history-product-link
+                        ps-4
+                        order-history-link
                         text-dark 
                         text-decoration-underline
                         d-inline'
@@ -27,10 +28,11 @@ const OrderCard = ({ order }) => {
             </div>
         ))}
         <div>
+            <hr />
             <p
-                className='fw-bold'
+                className='fw-bold ps-4'
             >
-                Order Total: <span className='fw-normal'>{total}</span>
+                Order Total:<span className='fw-normal'> ${total}</span>
             </p>
         </div>
         </div>
