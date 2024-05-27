@@ -1,7 +1,8 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, Order } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')(process.env.STRIPE);
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
 const resolvers = {
     Query: {
         categories: async () => {
@@ -51,26 +52,31 @@ const resolvers = {
         checkout: async (parent, args, context) => {
             const url = new URL(context.headers.referer).origin;
             const order = new Order({ products: args.products });
+            // console.log(order);
             const line_items = [];
 
             const { products } = await order.populate('products');
+            const prodMap = {};
 
             for (let i = 0; i < products.length; i++) {
-                    const product = await stripe.products.create({
-                    name: products[i].name,
-                    description: products[i].description,
-                    images: [`${url}/images/${products[i].image}`]
+                const product = await stripe.products.create({
+                  name: products[i].name,
+                  description: products[i].description,
+                  images: [`${url}/images/${products[i].image}`]
                 });
 
+                // each prod quantity
+                prodMap[products[i]._id] = (prodMap[products[i]._id] || 0) + 1;
+
                 const price = await stripe.prices.create({
-                    product: product.id,
-                    unit_amount: products[i].price * 100,
-                    currency: 'usd',
+                  product: product.id,
+                  unit_amount: products[i].price * 100,
+                  currency: 'usd',
                 });
 
                 line_items.push({
-                    price: price.id,
-                    quantity: 1
+                  price: price.id,
+                  quantity: 1
                 });
             }
 
@@ -81,6 +87,14 @@ const resolvers = {
                 success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${url}/`
             });
+
+            // update prod stock quantity
+            if (session.payment_status === 'unpaid') {
+              for (let prod in prodMap) {
+                const decrement = Math.abs(prodMap[prod]) * -1;
+                await Product.findByIdAndUpdate(prod, { $inc: { quantity: decrement } }, { new: true });
+              };
+            };
 
             return { session: session.id };
         }
@@ -105,9 +119,10 @@ const resolvers = {
         },
         addOrder: async (parent, { products }, context) => {
             if (context.user) {
-              const order = new Order({ products });
-              await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-              return order;
+              const orders = await Order.create({ products });
+              console.log(orders);
+              await User.findByIdAndUpdate(context.user._id, { $push: { orders: orders } });
+              return orders;
             }
             throw new AuthenticationError('Error: User not logged in.');
         },

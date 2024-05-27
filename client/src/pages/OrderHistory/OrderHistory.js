@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import OrderCard from '../../components/OrderCard/OrderCard.js';
 import { QUERY_USER } from '../../utils/queries';

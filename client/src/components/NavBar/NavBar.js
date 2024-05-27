@@ -44,7 +44,7 @@ const NavBar = () => {
     <header className='bg-dark d-flex flex-row align-items-center p-1 sticky-top position-fixed fixed-top'>
       <h1 className='ms-2'>
         <Link to='/' className='text-decoration-none text-white'>
-          <span>saide</span>
+          saide
         </Link>
       </h1>
       <nav className=''>

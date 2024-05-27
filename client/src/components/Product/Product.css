@@ -5,6 +5,7 @@
 
 .nav-link:hover {
     color: rgb(93, 91, 91) !important;
+    text-decoration: none !important;
 }
 
 .left {

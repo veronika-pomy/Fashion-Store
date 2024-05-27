@@ -44,12 +44,17 @@ const Product = ({ product }) => {
                     // height='510'
                     className='img-fluid border border-secondary'
                 />
-                <p className='nav-link text-dark mt-1'>{name}</p>
+                <p className='nav-link text-dark mt-1 text-decoration-underline'>{name}</p>
             </Link>
             <div className="center-block">
-                {quantity < 10 && 
+                {quantity < 10 && quantity > 0 && 
                     <div className='left'>
                         {quantity} {mult('item', quantity)} left
+                    </div>
+                }
+                {!quantity && 
+                    <div className='left'>
+                        item not in stock
                     </div>
                 }
                 <span>${price}</span>
@@ -57,6 +62,7 @@ const Product = ({ product }) => {
             <button 
                 onClick={addToCart}
                 className='text-lowercase btn btn-outline-secondary rounded-0 mt-1'
+                disabled={!quantity}
             >
                 Add to cart
             </button>

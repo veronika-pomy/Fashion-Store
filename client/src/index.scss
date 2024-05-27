@@ -7,6 +7,9 @@
 // override Bootstrap default
 $enable-negative-margins: true;
 
+// custom google font
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
   background-color: #212529;
 } 
@@ -24,7 +27,10 @@ $enable-negative-margins: true;
   body {
     margin: 0;
     padding: 0;
+    font-family: "Urbanist", serif;
+    font-optical-sizing: auto;
     font-weight: 400;
+    font-style: normal;
     line-height: 1.5;
     font-size: 16px;
   }
