@@ -35,10 +35,12 @@ const ProductInCart = ({ product }) => {
     };
 
     return (
-        <div className='cart-wrapper ms-4'>
+        <div className='cart-wrapper ms-2'>
             <div className='mt-4 product-wrapper'>
                 <img
                     className='cart-img'
+                    width='100'
+                    height='200'
                     src={`/images/${product.image}`}
                     alt={`${product.description}`}
                 />

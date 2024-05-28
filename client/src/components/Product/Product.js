@@ -7,7 +7,7 @@ import './Product.css';
 
 const Product = ({ product }) => {
 
-    const [ state, dispatch ] = useShopContext();
+    const [ state, dispatch, loading ] = useShopContext();
 
     const { _id, image, name, price, quantity } = product;
 
@@ -40,8 +40,8 @@ const Product = ({ product }) => {
                 <img
                     alt={name}
                     src={require(`../../assets/images/${image}`)}
-                    // width='340'
-                    // height='510'
+                    width='340'
+                    height='510'
                     className='img-fluid border border-secondary'
                 />
                 <p className='nav-link text-dark mt-1 text-decoration-underline'>{name}</p>

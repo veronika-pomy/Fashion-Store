@@ -11,6 +11,7 @@ import {
 import { indexedDBStore } from '../../utils/helper';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import './ProductDetail.css';
+import ProductDetailLoading from './ProductDetailLoading';
 
 const ProductDetail = () => {
 
@@ -76,6 +77,10 @@ const ProductDetail = () => {
         indexedDBStore('cart', 'delete', { ...product });
     }
 
+    if(loading) return (
+        <ProductDetailLoading />
+    )
+
     return (
         <div className='product-detail-container position relative ms-4'>
             {product && cart ? 
@@ -122,7 +127,6 @@ const ProductDetail = () => {
                 :
                     null
             }
-            {loading ? <p>Loading...</p>: null}
         </div>
 
     );

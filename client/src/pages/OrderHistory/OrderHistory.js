@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import OrderCard from '../../components/OrderCard/OrderCard.js';
 import { QUERY_USER } from '../../utils/queries';
 import './OrderHistory.css';
+import OrderHistoryLoading from './OrderHistoryLoading.js';
 
 const OrderHistory = () => {
 
-    const { data } = useQuery(QUERY_USER);
+    const { loading, data } = useQuery(QUERY_USER);
+
     let user;
     let pageCount = 0;
     
@@ -38,6 +40,11 @@ const OrderHistory = () => {
     const pageHandler = (page) => {
         setCurrentPage(page);
     };
+
+    if (loading) 
+        return (
+            <OrderHistoryLoading />
+        );
 
     if (!user) 
         return (
@@ -82,6 +89,7 @@ const OrderHistory = () => {
                         </div>
                     </div>
                 ))}
+
                 {/* Pagination */}
                 {orders.length > 0 && 
                     <div
