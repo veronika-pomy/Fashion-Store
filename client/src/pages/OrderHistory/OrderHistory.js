@@ -37,7 +37,6 @@ const OrderHistory = () => {
     // page buttons
     const pageHandler = (page) => {
         setCurrentPage(page);
-        console.log(page);
     };
 
     if (!user) 

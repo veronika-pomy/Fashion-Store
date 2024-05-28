@@ -47,3 +47,12 @@ export const ADD_ORDER = gql`
     }
   }
 `;
+
+export const UPDATE_PRODUCT = gql`
+  mutation updateProduct($id: ID!, $quantity: Int!) {
+    updateProduct(_id: $id, quantity: $quantity) {
+      _id
+      quantity
+    }
+  }
+`;

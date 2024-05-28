@@ -52,11 +52,9 @@ const resolvers = {
         checkout: async (parent, args, context) => {
             const url = new URL(context.headers.referer).origin;
             const order = new Order({ products: args.products });
-            // console.log(order);
             const line_items = [];
 
             const { products } = await order.populate('products');
-            const prodMap = {};
 
             for (let i = 0; i < products.length; i++) {
                 const product = await stripe.products.create({
@@ -64,9 +62,6 @@ const resolvers = {
                   description: products[i].description,
                   images: [`${url}/images/${products[i].image}`]
                 });
-
-                // each prod quantity
-                prodMap[products[i]._id] = (prodMap[products[i]._id] || 0) + 1;
 
                 const price = await stripe.prices.create({
                   product: product.id,
@@ -89,12 +84,12 @@ const resolvers = {
             });
 
             // update prod stock quantity
-            if (session.payment_status === 'unpaid') {
-              for (let prod in prodMap) {
-                const decrement = Math.abs(prodMap[prod]) * -1;
-                await Product.findByIdAndUpdate(prod, { $inc: { quantity: decrement } }, { new: true });
-              };
-            };
+            // if (session.payment_status === 'unpaid') {
+            //   for (let prod in prodMap) {
+            //     const decrement = Math.abs(prodMap[prod]) * -1;
+            //     await Product.findByIdAndUpdate(prod, { $inc: { quantity: decrement } }, { new: true });
+            //   };
+            // };
 
             return { session: session.id };
         }
@@ -120,7 +115,6 @@ const resolvers = {
         addOrder: async (parent, { products }, context) => {
             if (context.user) {
               const orders = await Order.create({ products });
-              console.log(orders);
               await User.findByIdAndUpdate(context.user._id, { $push: { orders: orders } });
               return orders;
             }
