@@ -7,7 +7,7 @@ import './Product.css';
 
 const Product = ({ product }) => {
 
-    const [ state, dispatch, loading ] = useShopContext();
+    const [ state, dispatch ] = useShopContext();
 
     const { _id, image, name, price, quantity } = product;
 
