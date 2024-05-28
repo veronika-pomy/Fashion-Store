@@ -83,14 +83,6 @@ const resolvers = {
                 cancel_url: `${url}/`
             });
 
-            // update prod stock quantity
-            // if (session.payment_status === 'unpaid') {
-            //   for (let prod in prodMap) {
-            //     const decrement = Math.abs(prodMap[prod]) * -1;
-            //     await Product.findByIdAndUpdate(prod, { $inc: { quantity: decrement } }, { new: true });
-            //   };
-            // };
-
             return { session: session.id };
         }
     }, 
