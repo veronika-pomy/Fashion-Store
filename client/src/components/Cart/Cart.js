@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { useShopContext } from '../../utils/GlobalState';
-import { ADD_MULTIPLE_TO_CART, TOGGLE_CART, CLEAR_CART } from '../../utils/actions';
+import { ADD_MULTIPLE_TO_CART, CLEAR_CART, TOGGLE_CART } from '../../utils/actions';
 import Auth from '../../utils/auth';
 import { indexedDBStore } from '../../utils/helper';
 import { QUERY_CHECKOUT } from '../../utils/queries';

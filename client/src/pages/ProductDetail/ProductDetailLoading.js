@@ -1,6 +1,6 @@
 import React from 'react';
 import Skeleton from '../../components/Skeleton.js';
-import './ProductDetail.css'
+import './ProductDetail.css';
 
 const ProductDetailLoading = () => {
   return (
