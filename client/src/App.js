@@ -47,34 +47,13 @@ function App() {
             <ScrollToTop />
             <NavBar />
             <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              <Route 
-                path='/login' 
-                element={<LogIn />} 
-              />
-              <Route 
-                path='/signup'
-                element={<SignUp />} 
-              />
-              <Route 
-                path="/products/:id" 
-                element={<ProductDetail />} 
-              />
-              <Route 
-                path="/success" 
-                element={<SuccessPage />} 
-              />
-              <Route 
-                path="/orderHistory" 
-                element={<OrderHistory />} 
-              />
-              <Route 
-                path="*" 
-                element={<Error />} 
-              />
+              <Route path="/" exact element={<Home />} />
+              <Route path='/login' exact element={<LogIn />} />
+              <Route path='/signup'exact element={<SignUp />} />
+              <Route path="/products/:id" exact element={<ProductDetail />} />
+              <Route path="/success" exact element={<SuccessPage />} />
+              <Route path="/orderHistory" exact element={<OrderHistory />} />
+              <Route path="/*" exact element={<Error />} />
             </Routes>
           </ShopProvider>
         </div>
