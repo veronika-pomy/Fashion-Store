@@ -44,7 +44,7 @@ const SuccessPage = () => {
     };
 
     saveOrder();
-  }, [ addOrder ]);
+  }, [ addOrder, updateProduct ]);
 
   // count down
   function countDown () {
@@ -57,7 +57,7 @@ const SuccessPage = () => {
         countDown();
       }, 1000);
     };
-  }, [ counter ]);
+  }, [ counter, countDown ]);
 
   return (
     <div className='success-wrapper position-relative text-white'>
