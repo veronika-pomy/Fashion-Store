@@ -69,7 +69,7 @@ db.once('open', async () => {
             description: 'Indulge in comfort with our linen tunic, a breezy yet refined piece that effortlessly merges relaxed vibes with timeless elegance, perfect for effortless chic.',
             image: 'image-7.jpg',
             category: categories[2]._id,
-            price: 79.99,
+            price: 59.99,
             quantity: 10,
         },
         {
