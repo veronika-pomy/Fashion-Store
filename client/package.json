@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "vitest --run --reporter verbose",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "fake-indexeddb": "^6.0.0",
+    "vitest": "^2.0.4"
   }
 }
