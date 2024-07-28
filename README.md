@@ -103,7 +103,7 @@ https://github.com/veronika-pomy/Fashion-Store/assets/111567114/e253846d-bbb1-4b
 ## Testing
 
 - Testing suites are located in the `__tests__` folder
-- Run tests b yusing command `npm run test`
+- Run tests using command `npm run test`
 
 ## Contributing
 
