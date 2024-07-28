@@ -31,7 +31,10 @@
     <li>
         <a href="#get-started">Get Started</a>
     </li>
-        <li>
+    <li>
+        <a href="#testing">Testing</a>
+    </li>
+    <li>
         <a href="#contributing">Contributing</a>
     </li>
 </ul>
@@ -80,6 +83,8 @@ https://github.com/veronika-pomy/Fashion-Store/assets/111567114/e253846d-bbb1-4b
 
 - [concurrently](https://www.npmjs.com/package/concurrently)
 
+- [Vitest](https://vitest.dev)
+
 ## Design
 
 - [IconScout](https://iconscout.com/) - favicon design by [Chamestudio](https://iconscout.com/contributors/chamedesign)
@@ -94,6 +99,11 @@ https://github.com/veronika-pomy/Fashion-Store/assets/111567114/e253846d-bbb1-4b
 - Install dependencies: `npm install`
 - Start the development server: `npm run dev`
 - Set Environment Variables: create a `.env` file and add your API keys and sensitive information as environment variables
+
+## Testing
+
+- Testing suites are located in the `__tests__` folder
+- Run tests b yusing command `npm run test`
 
 ## Contributing
 
