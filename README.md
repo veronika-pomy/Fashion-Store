@@ -53,7 +53,7 @@ This project features a modern, responsive web application built with a React fr
 
 ## Demo
 
-Check out the deployed version 1.0 [here.](https://fashion-shop-66a46d161c61.herokuapp.com/)
+Check out the video demo [here.](https://drive.google.com/file/d/1-nKcFPdXGsY_77aaioHxfBc64_jHZyAq/view?usp=sharing)
 
 https://github.com/veronika-pomy/Fashion-Store/assets/111567114/e253846d-bbb1-4b59-8031-ef047e7834dd
 
